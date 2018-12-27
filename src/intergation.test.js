@@ -1,6 +1,7 @@
 import { storeFactory } from '../test/testUtils';
 import { guessWord } from './actions';
 
+
 describe('guess action dispatcher', ()=>{
     const secretWord = 'party';
     const unseccesfull = 'train';
@@ -18,8 +19,8 @@ describe('guess action dispatcher', ()=>{
                 secretWord,
                 success: true,
                 guessedWords: [{
-                    guessedWords:secretWord,
-                    lettersMatchCount: 5
+                    guessedWord:secretWord,
+                    letterMatchCount: 5
                 }]
             }
             expect(newState).toEqual(expectedState)
@@ -32,7 +33,7 @@ describe('guess action dispatcher', ()=>{
                 success: false,
                 guessedWords: [{
                     guessedWord: unseccesfull,
-                    lettersMatchCount: 3
+                    letterMatchCount: 3
                 }]
             }
 
@@ -40,7 +41,7 @@ describe('guess action dispatcher', ()=>{
         })
     })
     describe('some guessedWords words', ()=>{
-        const guessedWords = [{ guessedWord: 'agile', lettersMatchCount: 1}]
+        const guessedWords = [{ guessedWord: 'agile', letterMatchCount: 1}]
         const initialState = { guessedWords, secretWord}
         let store;
         beforeEach(()=>{
@@ -53,8 +54,8 @@ describe('guess action dispatcher', ()=>{
                 secretWord,
                 success: true,
                 guessedWords: [...guessedWords, {
-                    guessWord: secretWord,
-                    lettersMatchCount: 5
+                    guessedWord: secretWord,
+                    letterMatchCount: 5
                 }]
             }
             expect(newState).toEqual(expectedState)
@@ -66,8 +67,8 @@ describe('guess action dispatcher', ()=>{
                 secretWord,
                 success: false,
                 guessedWords: [...guessedWords, {
-                    guessedWords: unseccesfull,
-                    lettersMatchCount: 3,
+                    guessedWord: unseccesfull,
+                    letterMatchCount: 3,
 
                 }]
             }
